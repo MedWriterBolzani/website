@@ -1,19 +1,40 @@
+/* ===== Variables ===== */
+:root {
+  --primary-blue: #00507a;
+  --accent-color: #FF6F61;
+  --text-dark: #222222;
+  --bg-light: #fefefe;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 80, 122, 0.15);
+}
+
+/* ===== Base styles ===== */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  color: #222;
-  background-color: #fefefe;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
 }
 
+section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===== Navbar ===== */
 .navbar {
   position: sticky;
   top: 0;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   border-bottom: 1px solid #ccc;
   padding: 10px 20px;
   z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .nav-container {
@@ -45,25 +66,25 @@ body {
 
 .nav-links li a {
   text-decoration: none;
-  color: #2a2a2a;
-  font-weight: bold;
+  color: var(--text-dark);
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
+.nav-links li a:hover,
 .navbar a.active {
-  color: #0077cc;
-  border-bottom: 2px solid #0077cc;
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
-section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: auto;
-}
-
+/* ===== Headings ===== */
 h1, h2, h3 {
-  color: #00507a;
+  color: var(--primary-blue);
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
+/* ===== Cards ===== */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -73,29 +94,44 @@ h1, h2, h3 {
 
 .card {
   flex: 1 1 280px;
-  background-color: #ffffff;
-  border: 1px solid #e2e2e2;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
+  background-color: var(--card-bg);
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px var(--card-shadow);
 }
 
 .card a {
   display: inline-block;
   margin-top: 10px;
-  color: #0077cc;
-  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .card a:hover {
   text-decoration: underline;
+  color: #e65545;
 }
 
+.card ul {
+  padding-left: 1.2em;
+  margin-top: 10px;
+  color: #444;
+}
+
+.card ul li {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* ===== Timeline ===== */
 .timeline {
   margin-top: 40px;
   display: flex;
@@ -111,16 +147,19 @@ h1, h2, h3 {
 
 .timeline-date {
   min-width: 100px;
-  font-weight: bold;
-  color: #00507a;
+  font-weight: 700;
+  color: var(--primary-blue);
+  font-size: 1.1rem;
 }
 
 .timeline-content {
-  background-color: #f8f8f8;
-  padding: 15px 20px;
-  border-left: 4px solid #00507a;
-  border-radius: 4px;
+  background-color: #f0f8ff;
+  padding: 18px 22px;
+  border-left: 5px solid var(--primary-blue);
+  border-radius: 8px;
   flex: 1;
+  color: #333;
+  font-weight: 500;
 }
 
 .timeline-content strong {
@@ -130,7 +169,7 @@ h1, h2, h3 {
   color: #333;
 }
 
-/* MOBILE */
+/* ===== Mobile Styles ===== */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -139,7 +178,7 @@ h1, h2, h3 {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--card-bg);
     position: absolute;
     top: 60px;
     right: 20px;
@@ -174,3 +213,4 @@ h1, h2, h3 {
     flex-direction: column;
   }
 }
+
