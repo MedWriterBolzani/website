@@ -1,40 +1,49 @@
-/* ===== Variables ===== */
-:root {
-  --primary-blue: #00507a;
-  --accent-color: #FF6F61;
-  --text-dark: #222222;
-  --bg-light: #fefefe;
-  --card-bg: #ffffff;
-  --card-shadow: rgba(0, 80, 122, 0.15);
-}
-
-/* ===== Base styles ===== */
+/* --- BODY AND BACKGROUND --- */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  color: var(--text-dark);
-  background-color: var(--bg-light);
-  line-height: 1.6;
-  letter-spacing: 0.02em;
+  color: #222;
+  background: linear-gradient(135deg, #e0f7fa 0%, #fff9c4 100%);
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: auto;
+body::before, body::after {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: -1;
 }
 
-/* ===== Navbar ===== */
+body::before {
+  top: -150px;
+  left: -150px;
+  background: radial-gradient(circle at center, #29b6f6 0%, transparent 70%);
+  filter: blur(100px);
+}
+
+body::after {
+  bottom: -150px;
+  right: -150px;
+  background: radial-gradient(circle at center, #fbc02d 0%, transparent 70%);
+  filter: blur(100px);
+}
+
+/* --- NAVBAR --- */
 .navbar {
   position: sticky;
   top: 0;
-  background-color: var(--card-bg);
+  background-color: #ffffffcc; /* slightly transparent */
   border-bottom: 1px solid #ccc;
   padding: 10px 20px;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  backdrop-filter: saturate(180%) blur(10px);
 }
 
 .nav-container {
@@ -48,12 +57,14 @@ section {
 .nav-logo {
   font-weight: bold;
   font-size: 1.2rem;
+  color: #0077cc;
 }
 
 .nav-toggle {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
+  color: #0077cc;
 }
 
 .nav-links {
@@ -66,25 +77,38 @@ section {
 
 .nav-links li a {
   text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 600;
+  color: #2a2a2a;
+  font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover,
 .navbar a.active {
-  color: var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
+  color: #0077cc;
+  border-bottom: 2px solid #0077cc;
 }
 
-/* ===== Headings ===== */
+/* --- SECTIONS --- */
+section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  background: #ffffffdd;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+  transition: box-shadow 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
 h1, h2, h3 {
-  color: var(--primary-blue);
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  color: #00507a;
+  margin-bottom: 20px;
 }
 
-/* ===== Cards ===== */
+/* --- CARDS --- */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -94,44 +118,34 @@ h1, h2, h3 {
 
 .card {
   flex: 1 1 280px;
-  background-color: var(--card-bg);
-  border: 1px solid #ddd;
-  padding: 25px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px var(--card-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 28px var(--card-shadow);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
 }
 
 .card a {
   display: inline-block;
   margin-top: 10px;
-  color: var(--accent-color);
+  color: #0077cc;
+  text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: text-decoration 0.3s ease;
 }
 
 .card a:hover {
   text-decoration: underline;
-  color: #e65545;
 }
 
-.card ul {
-  padding-left: 1.2em;
-  margin-top: 10px;
-  color: #444;
-}
-
-.card ul li {
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-/* ===== Timeline ===== */
+/* --- TIMELINE --- */
 .timeline {
   margin-top: 40px;
   display: flex;
@@ -146,30 +160,29 @@ h1, h2, h3 {
 }
 
 .timeline-date {
-  min-width: 100px;
-  font-weight: 700;
-  color: var(--primary-blue);
+  min-width: 120px;
+  font-weight: bold;
+  color: #00507a;
   font-size: 1.1rem;
 }
 
 .timeline-content {
-  background-color: #f0f8ff;
-  padding: 18px 22px;
-  border-left: 5px solid var(--primary-blue);
-  border-radius: 8px;
+  background-color: #f8f8f8;
+  padding: 18px 25px;
+  border-left: 5px solid #00507a;
+  border-radius: 6px;
   flex: 1;
-  color: #333;
-  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
 .timeline-content strong {
   display: block;
   margin-bottom: 5px;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #333;
 }
 
-/* ===== Mobile Styles ===== */
+/* --- MOBILE --- */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -178,7 +191,7 @@ h1, h2, h3 {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: var(--card-bg);
+    background-color: white;
     position: absolute;
     top: 60px;
     right: 20px;
@@ -213,4 +226,5 @@ h1, h2, h3 {
     flex-direction: column;
   }
 }
+
 
