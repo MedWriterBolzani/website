@@ -244,10 +244,11 @@ h1, h2, h3 {
 
 @media (max-width: 600px) {
   .logo {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
   }
 }
+
 
 
 
