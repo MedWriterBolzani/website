@@ -227,16 +227,25 @@ h1, h2, h3 {
 }
 
 .logo {
-  width: 120px;
-  max-width: 30%;
-  height: auto;
+  width: 180px;           /* or 200px if you want bigger */
+  height: 180px;
+  object-fit: cover;       /* ensures the image fills space nicely */
+  border-radius: 50%;      /* makes it a perfect circle */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* optional shadow */
 }
+
 
 /* Optional: adjust navbar spacing */
 .navbar {
   margin-top: 10px;
 }
 
+@media (max-width: 600px) {
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+}
 
 
 
