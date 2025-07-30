@@ -1,33 +1,21 @@
-:root {
-  --bg-gradient-start: #5b7dc5;
-  --bg-gradient-end: #8e44ad;
-  --text-color: #f0f4ff;
-  --card-bg: rgba(255, 255, 255, 0.06);
-  --section-bg: rgba(255, 255, 255, 0.04);
-  --navbar-bg: rgba(60, 50, 80, 0.9);
-  --accent: #ffca28;
-  --link-color: #d1c4e9;
-  --border-light: rgba(255, 255, 255, 0.08);
-}
-
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  color: var(--text-color);
-  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  color: #e0e7ff; /* lighter text for contrast */
+  background: linear-gradient(135deg, #3b5998, #6a1b9a); /* blue-purple gradient */
   min-height: 100vh;
 }
 
 .navbar {
   position: sticky;
   top: 0;
-  background-color: var(--navbar-bg);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(40, 30, 60, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 10px 20px;
   z-index: 1000;
-  color: var(--text-color);
+  color: #e0e7ff;
 }
 
 .nav-container {
@@ -38,17 +26,36 @@ body {
   margin: 0 auto;
 }
 
-.nav-logo {
+/* New branding styles */
+.nav-branding {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-title {
   font-weight: bold;
-  font-size: 1.2rem;
-  color: var(--link-color);
+  font-size: 1.4rem;
+  color: #d1c4e9; /* soft purple */
+}
+
+.nav-subtitle {
+  font-size: 0.9rem;
+  color: #b39ddb; /* lighter purple */
+  margin-top: 2px;
+}
+
+/* Hide subtitle on very small screens */
+@media (max-width: 480px) {
+  .nav-subtitle {
+    display: none;
+  }
 }
 
 .nav-toggle {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: var(--link-color);
+  color: #d1c4e9;
 }
 
 .nav-links {
@@ -61,28 +68,28 @@ body {
 
 .nav-links li a {
   text-decoration: none;
-  color: var(--link-color);
+  color: #d1c4e9;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover,
 .navbar a.active {
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
+  color: #ffca28; /* warm gold accent */
+  border-bottom: 2px solid #ffca28;
 }
 
 section {
   padding: 80px 20px;
   max-width: 900px;
-  margin: 40px auto;
-  background-color: var(--section-bg);
+  margin: auto;
+  background-color: rgba(40, 30, 60, 0.65);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 h1, h2, h3 {
-  color: var(--link-color);
+  color: #d1c4e9;
 }
 
 .card-container {
@@ -94,25 +101,24 @@ h1, h2, h3 {
 
 .card {
   flex: 1 1 280px;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-light);
+  background-color: rgba(55, 42, 90, 0.85);
+  border: 1px solid #6a1b9a;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(107, 33, 135, 0.4);
+  box-shadow: 0px 4px 10px rgba(107, 33, 135, 0.5);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-  color: var(--text-color);
+  color: #e0e7ff;
 }
 
 .card:hover {
-  background-color: rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
-  box-shadow: 0px 10px 20px rgba(255, 202, 40, 0.6);
+  box-shadow: 0px 10px 20px rgba(255, 202, 40, 0.7);
 }
 
 .card a {
   display: inline-block;
   margin-top: 10px;
-  color: var(--accent);
+  color: #ffca28;
   text-decoration: none;
   font-weight: 600;
 }
@@ -132,19 +138,19 @@ h1, h2, h3 {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  color: var(--text-color);
+  color: #e0e7ff;
 }
 
 .timeline-date {
   min-width: 100px;
   font-weight: bold;
-  color: #d1c4e9;
+  color: #b39ddb; /* light purple */
 }
 
 .timeline-content {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(55, 42, 90, 0.75);
   padding: 15px 20px;
-  border-left: 4px solid #b39ddb;
+  border-left: 4px solid #9575cd;
   border-radius: 4px;
   flex: 1;
 }
@@ -153,12 +159,7 @@ h1, h2, h3 {
   display: block;
   margin-bottom: 5px;
   font-size: 1.05rem;
-  color: var(--link-color);
-}
-
-/* Section separation */
-section + section {
-  margin-top: 60px;
+  color: #d1c4e9;
 }
 
 /* MOBILE */
@@ -170,12 +171,12 @@ section + section {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: var(--navbar-bg);
+    background-color: rgba(40, 30, 60, 0.9);
     position: absolute;
     top: 60px;
     right: 20px;
     width: 200px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     border-radius: 6px;
     padding: 15px;
   }
@@ -204,11 +205,8 @@ section + section {
   .card-container {
     flex-direction: column;
   }
-
-  section {
-    padding: 60px 15px;
-  }
 }
+
 
 
 
