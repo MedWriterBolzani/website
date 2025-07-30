@@ -1,21 +1,33 @@
+:root {
+  --bg-gradient-start: #5b7dc5;
+  --bg-gradient-end: #8e44ad;
+  --text-color: #f0f4ff;
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --section-bg: rgba(255, 255, 255, 0.04);
+  --navbar-bg: rgba(60, 50, 80, 0.9);
+  --accent: #ffca28;
+  --link-color: #d1c4e9;
+  --border-light: rgba(255, 255, 255, 0.08);
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  color: #e0e7ff; /* lighter text for contrast */
-  background: linear-gradient(135deg, #3b5998, #6a1b9a); /* blue-purple gradient */
+  color: var(--text-color);
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
   min-height: 100vh;
 }
 
 .navbar {
   position: sticky;
   top: 0;
-  background-color: rgba(40, 30, 60, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   padding: 10px 20px;
   z-index: 1000;
-  color: #e0e7ff;
+  color: var(--text-color);
 }
 
 .nav-container {
@@ -29,14 +41,14 @@ body {
 .nav-logo {
   font-weight: bold;
   font-size: 1.2rem;
-  color: #d1c4e9; /* soft purple */
+  color: var(--link-color);
 }
 
 .nav-toggle {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: #d1c4e9;
+  color: var(--link-color);
 }
 
 .nav-links {
@@ -49,28 +61,28 @@ body {
 
 .nav-links li a {
   text-decoration: none;
-  color: #d1c4e9;
+  color: var(--link-color);
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover,
 .navbar a.active {
-  color: #ffca28; /* warm gold accent */
-  border-bottom: 2px solid #ffca28;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 
 section {
   padding: 80px 20px;
   max-width: 900px;
-  margin: auto;
-  background-color: rgba(40, 30, 60, 0.65);
+  margin: 40px auto;
+  background-color: var(--section-bg);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 h1, h2, h3 {
-  color: #d1c4e9;
+  color: var(--link-color);
 }
 
 .card-container {
@@ -82,24 +94,24 @@ h1, h2, h3 {
 
 .card {
   flex: 1 1 280px;
-  background-color: rgba(55, 42, 90, 0.85);
-  border: 1px solid #6a1b9a;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-light);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(107, 33, 135, 0.5);
+  box-shadow: 0px 4px 10px rgba(107, 33, 135, 0.4);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-  color: #e0e7ff;
+  color: var(--text-color);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0px 10px 20px rgba(255, 202, 40, 0.7);
+  box-shadow: 0px 10px 20px rgba(255, 202, 40, 0.6);
 }
 
 .card a {
   display: inline-block;
   margin-top: 10px;
-  color: #ffca28;
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
 }
@@ -119,19 +131,19 @@ h1, h2, h3 {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  color: #e0e7ff;
+  color: var(--text-color);
 }
 
 .timeline-date {
   min-width: 100px;
   font-weight: bold;
-  color: #b39ddb; /* light purple */
+  color: #d1c4e9;
 }
 
 .timeline-content {
-  background-color: rgba(55, 42, 90, 0.75);
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 15px 20px;
-  border-left: 4px solid #9575cd;
+  border-left: 4px solid #b39ddb;
   border-radius: 4px;
   flex: 1;
 }
@@ -140,10 +152,10 @@ h1, h2, h3 {
   display: block;
   margin-bottom: 5px;
   font-size: 1.05rem;
-  color: #d1c4e9;
+  color: var(--link-color);
 }
 
-/* MOBILE */
+/* === MOBILE === */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -152,12 +164,12 @@ h1, h2, h3 {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: rgba(40, 30, 60, 0.9);
+    background-color: var(--navbar-bg);
     position: absolute;
     top: 60px;
     right: 20px;
     width: 200px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 6px;
     padding: 15px;
   }
@@ -186,7 +198,12 @@ h1, h2, h3 {
   .card-container {
     flex-direction: column;
   }
+
+  section {
+    padding: 60px 15px;
+  }
 }
+
 
 
 
