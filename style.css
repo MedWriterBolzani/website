@@ -33,6 +33,19 @@ h1, h2, h3 {
   color: #ffffff;
 }
 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.nav-branding {
+  display: flex;
+  flex-direction: column;
+}
+
 .nav-title {
   font-weight: bold;
   font-size: 1.4rem;
@@ -44,14 +57,58 @@ h1, h2, h3 {
   color: #f5eaff;
 }
 
-.nav-links li a {
-  color: #f3eaff;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
+
+.nav-links li a {
+  text-decoration: none;
+  color: #f3eaff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
 .nav-links li a:hover,
 .navbar a.active {
   color: #ffd54f;
   border-bottom: 2px solid #ffd54f;
 }
+
+.nav-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ecd6ff;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(60, 50, 90, 0.95);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border-radius: 6px;
+    padding: 15px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
 
 /* CARDS */
 .card-container {
