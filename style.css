@@ -217,6 +217,25 @@ h1, h2, h3 {
     flex-direction: column;
   }
 }
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  background-color: transparent;
+}
+
+.logo {
+  width: 120px;
+  max-width: 30%;
+  height: auto;
+}
+
+/* Optional: adjust navbar spacing */
+.navbar {
+  margin-top: 10px;
+}
 
 
 
