@@ -221,18 +221,20 @@ h1, h2, h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding-top: 50px;
+  padding-bottom: 40px;
   background-color: transparent;
 }
 
+
 .logo {
-  width: 180px;           /* or 200px if you want bigger */
-  height: 180px;
-  object-fit: cover;       /* ensures the image fills space nicely */
-  border-radius: 50%;      /* makes it a perfect circle */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* optional shadow */
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 
 
 /* Optional: adjust navbar spacing */
