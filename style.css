@@ -248,6 +248,45 @@ h1, h2, h3 {
     height: 180px;
   }
 }
+/* === Profile Picture Layout in About Section === */
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  border: 2px solid #ffd54f;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-photo {
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+}
 
 
 
