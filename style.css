@@ -295,7 +295,16 @@ h1, h2, h3 {
     text-align: left;
   }
 }
-
+footer {
+  background-color: rgba(230, 215, 255, 0.12); /* subtle card-like purple */
+  border-top: 1px solid #ffc6e2; /* pastel pink top border */
+  color: #f3eaff; /* text color */
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+  border-radius: 0 0 12px 12px; /* rounded bottom corners */
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3); /* subtle shadow at top of footer */
+}
 
 
 
